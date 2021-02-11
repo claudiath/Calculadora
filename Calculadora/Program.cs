@@ -10,8 +10,6 @@ namespace Calculadora // espacio de nombres definido como nuestro proyecto
         static void Main(string[] args) // método principal que viene por defecto para ejecutar el código
         {
 
-
-
         // declarar variable Peticion para pedir los números al usuario
         public static void Peticion(char opcion);
         decimal num1 = 0, num2 = 0, resultado = 0;
@@ -104,7 +102,7 @@ namespace Calculadora // espacio de nombres definido como nuestro proyecto
                     }
                     else
                     {
-                        Console.WriteLine("La opción elegida no es válida");
+                        Console.WriteLine("La opción elegida no es válida.");
                         Console.ReadLine();
                         n++;
 
