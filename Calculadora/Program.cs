@@ -11,9 +11,6 @@ namespace Calculadora // espacio de nombres definido como nuestro proyecto
         {
 
         // declarar variable Peticion para pedir los números al usuario
-
-        // Esto es un comentario
-
         public static void Peticion(char opcion);
         decimal num1 = 0, num2 = 0, resultado = 0;
 
