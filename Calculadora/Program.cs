@@ -1,98 +1,48 @@
-﻿using System; // System: son directivas que permite utilizar funcionalidades que vienen por defecto en el programa, por ej. Clase Console
+using System;  //son directivas que permiten utilizar funcionalidades que vienen dadas por defecto en nuestro programa, por ej: la clase console
 
-namespace Calculadora // espacio de nombres definido como nuestro proyecto
+namespace CALCULADORA //espacio de nombres definidas como nuestro proyecto
 {
-    class Program  // clase principal del proyecto
 
+     class Program //clase principal de nuestro proyecto, llamada Program 
     {
-
-               
-        static void Main(string[] args) // método principal que viene por defecto para ejecutar el código
+        //El método Main() es el punto de entrada de las aplicaciones de C#.
+        //el método Main es el primero que se invoca.
+        //Main se declara dentro de una clase o estructura. El valor de Main debe ser estático y no público.
+        //Main puede tener un tipo de valor devuelto void, int
+        //El método Main se puede declarar con o sin un parámetro string[] que contiene los argumentos de línea de comandos.
+        /*Si el valor devuelto de Main no se usa, la devolución de void permite contar con un código ligeramente más simple.
+         * En cambio, devolver un valor entero permite que el programa comunique información de estado a otros programas o 
+         * scripts que invocan el archivo ejecutable. El valor devuelto de Main se trata como el código de salida para el proceso. 
+         * Si se devuelve void de Main, el código de salida será implícitamente 0. */
+        static void Main(string[] args) /*esto es un comentario */ /*es el método principal que viene dado por defecto para ejecutar nuestro código*/
         {
-
-        // declarar variable Peticion para pedir los números al usuario
-        public static void Peticion(char opcion);
-        decimal num1 = 0, num2 = 0, resultado = 0;
-
-            // utilizando atributos de la clase Console
-            Console.BackgroundColor = ConsoleColor.White; // fondo del texto
-            Console.ForegroundColor = ConsoleColor.Black; // color del texto
-                                                          // utilizando métodos de la clase Console
-                                                          // Console.WriteLine("Hello World!"); // línea de código que se muestra en pantalla al ejecutar la aplicación
-
-            //Program prog = new Program(); //llamada a la clase Program (instanciar)
-
-            // declarar variables
-            //int num1 = 0, num2 = 0, resultado = 0;
-
+            //utilizando atributos de la clase console:
+            Console.BackgroundColor = ConsoleColor.White; //fondo del texto
+            Console.ForegroundColor = ConsoleColor.Black; //color del texto
+                                                          //utilizando métodos de la clase console:
+                                                          // La clase Console proporciona compatibilidad básica para las aplicaciones que leen caracteres de la consola y escriben caracteres en ella.
+                                                          //Console.WriteLine("Hello World!"); // línea de código que se muestra en pantalla al ejecutar la aplicación 
+                                                          //Program prog = new Program(); //esto es una llamada a la clase Program (instanciar)
+                                                          //declarar variables
+                                                          //int num1=0, num2=0,resultado = 0;
             try
             {
                 char opcion = '0'; string valorElegido = "";
                 int n = 1;
-
                 for (int i = 0; i < n; i++)
                 {
-                    Console.WriteLine("Bienvenido a la calculadora" + "\n"
-         + "Desea realizar alguna operación? <S/N> \n"); // \n indica un salto de línea
+                    Console.WriteLine("***********************BIENVENIDO A LA CALCULADORA***********************" + "\n"
+                   + "¿Desea realizar alguna operación? <S/N> \n"); // "\n indica un salto de línea"
                     valorElegido = Console.ReadLine();
                     if (valorElegido.ToUpper() == "S")
                     {
-                        // interactuar con el usuario
-                        Console.WriteLine("Elija una operación: + - * /");
+                        //interactuar con el usuario
+                        Console.WriteLine("Elija una operación: + - / * ");
                         opcion = Convert.ToChar(Console.ReadLine());
-
-                        // utilizando condicional switch case
-                        switch (opcion)
-                        {
-                            case '+':
-                                //prog.Peticion(num1, num2);
-                                Console.WriteLine("Escribe un número");
-                                num1 = Convert.ToDecimal(Console.ReadLine());
-                                Console.WriteLine("Escribe otro número");
-                                num2 = Convert.ToDecimal(Console.ReadLine());
-                                resultado = num1 + num2;
-                                Console.WriteLine("El resultado de la suma es: " + resultado);
-                                break;
-                            case '-':
-                                //prog.Peticion(num1, num2);
-                                Console.WriteLine("Escribe un número");
-                                num1 = Convert.ToDecimal(Console.ReadLine());
-                                Console.WriteLine("Escribe otro número");
-                                num2 = Convert.ToDecimal(Console.ReadLine());
-                                resultado = num1 - num2;
-                                Console.WriteLine("El resultado de la resta es: " + resultado);
-                                break;
-                            case '*':
-                                //prog.Peticion(num1, num2);
-                                Console.WriteLine("Escribe un número");
-                                num1 = Convert.ToDecimal(Console.ReadLine());
-                                Console.WriteLine("Escribe otro número");
-                                num2 = Convert.ToDecimal(Console.ReadLine());
-                                resultado = num1 * num2;
-                                Console.WriteLine("El resultado de la multiplicación es: " + resultado);
-                                break;
-                            case '/':
-                                //prog.Peticion(num1, num2);
-                                Console.WriteLine("Escribe un número");
-                                num1 = Convert.ToDecimal(Console.ReadLine());
-                                Console.WriteLine("Escribe otro número");
-                                num2 = Convert.ToDecimal(Console.ReadLine());
-                                if (num2 == 0) ;
-                                {
-                                    // se provoca una excepción para que vaya directamente al catch y capture el error del argumento
-                                    throw new ArgumentException ("Se ha intentado dividir entre 0");
-                                }
-                                resultado = num1 / num2;
-                                Console.WriteLine("El resultado de la división es: " + resultado);
-                                break;
-                            default:
-                                Console.WriteLine("La opción elegida no es válida");
-                                break;
-                        }
+                        Peticion(opcion);
                         n++;
                         Console.ReadLine();
-
-                        // propiedad para borrar en pantalla
+                        //propiedad para borrar en pantalla
                         Console.Clear();
                     }
                     else if (valorElegido.ToUpper() == "N")
@@ -103,55 +53,109 @@ namespace Calculadora // espacio de nombres definido como nuestro proyecto
                     else
                     {
                         Console.WriteLine("La opción elegida no es válida.");
-                        Console.ReadLine();
+                        //propiedad para borrar en pantalla
+                        Console.Clear();
                         n++;
 
-                        // propiedad para borrar en pantalla
-                        Console.Clear();
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("La aplicación ha fallado, contacte con soporte"+ ex.Message);
+                Console.WriteLine("La aplicación ha fallado. Contacte con soporte. " + ex.Message);
                 Console.ReadKey();
+
+            }
+
+        }
+        //se declara la función Petición para pedir los numeros al usuario
+        public static void Peticion(char opcion)
+        {
+            decimal num1=0, num2=0, resultado = 0;
+            switch (opcion)
+            {
+                case '+':
+                    Console.WriteLine("Escribe un número:");
+                     num1 = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Escribe otro número:");
+                     num2 = Convert.ToDecimal(Console.ReadLine());
+                    resultado = num1 + num2;
+                    Console.WriteLine("El resultado de la suma es: " + resultado);
+                    break;
+                case '-':
+                    Console.WriteLine("Escribe un número:");
+                    num1 = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Escribe otro número:");
+                    num2 = Convert.ToDecimal(Console.ReadLine());
+                    resultado = num1 - num2;
+                    Console.WriteLine("El resultado de la resta es: " + resultado);
+                    break;
+                case '*':
+                    Console.WriteLine("Escribe un número:");
+                    num1 = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Escribe otro número:");
+                    num2 = Convert.ToDecimal(Console.ReadLine());
+                    resultado = num1 * num2;
+                    Console.WriteLine("El resultado de la multiplicación es: " + resultado);
+                    break;
+                case '/':
+
+                    Console.WriteLine("Escribe un número:");
+                    num1 = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Escribe otro número:");
+                    num2 = Convert.ToDecimal(Console.ReadLine());
+                    if (num2==0)
+                    {
+                        //se provoca una exception para que vaya directamente al catch y capture el error del argumento que le hemos añadido.
+                        throw new ArgumentException("Se ha intentado dividir entre 0");
+                    }
+                    resultado = num1 / num2;
+                    Console.WriteLine("El resultado de la división es: " + resultado);
+                    break;
+                default:
+                    Console.WriteLine("La opción elegida no es válida.");
+                    break;
             }
         }
 
-        // utilizando condicional if else if else
-        //if (opcion== '+')
-        //{
-        //    resultado = num1 + num2;
-        //    Console.WriteLine("El resultado de la suma es: " + resultado);
-        //}
-        //else if (opcion== '-')
-        //{
-        //    resultado = num1 - num2;
-        //    Console.WriteLine("El resultado de la resta es: " + resultado);
-        //}
-        //else if (opcion== '*')
-        //{
-        //    resultado = num1 * num2;
-        //    Console.WriteLine("El resultado de la multiplicación es: " + resultado);
-        //}
-        //else if (opcion== '/')
-        //{
-        //    resultado = num1 / num2;
-        //    Console.WriteLine("El resultado de la división es: " + resultado);
-        //}
-        //else
-        //{
-        //    Console.WriteLine("La opción elegida no es válida");
-        //}
-
-        // utilizando bucle "for"
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    Console.WriteLine("Vuelta número:" + i);
-        //}
-
-        //Console.ReadLine(); // paramos el código con el Intro, también sirve para recoger los valores que introduce el usuario
-        // Console.ReadKey(); // paramos el código con cualquier tecla
-
     }
 }
+//public string Mostrarnumero() { return "4"; } //ejemplo de funcion
+//condicionales
+//utilizando if..else if ..else
+//if (opcion == '+')
+//{
+//    resultado = num1 + num2;
+//    Console.WriteLine("El resultado de la suma es: " + resultado);
+
+//}
+//else if (opcion == '-')
+//{
+//    resultado = num1 - num2;
+//    Console.WriteLine("El resultado de la resta es: " + resultado);
+
+//}
+//else if (opcion == '/')
+//{
+//    resultado = num1 / num2;
+//    Console.WriteLine("El resultado de la división es: " + resultado);
+
+//}
+//else if (opcion == '*')
+//{
+//    resultado = num1 * num2;
+//    Console.WriteLine("El resultado de la multiplicación es: " + resultado);
+
+//}
+//else
+//{ Console.WriteLine("La opción elegida no es válida."); }
+
+//utilizando bucles "FOR" 
+// for (int i = 0; i < 2; i++)
+// {
+//    Console.WriteLine("vuelta numero: " + i);
+//}
+
+
+// Console.ReadLine(); //paramos el codigo en este punto con el intro, también sirve para recoger los valores que introduzca el usuario
+// Console.ReadKey(); //paramos el codigo con cualquier tecla
