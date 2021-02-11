@@ -27,6 +27,9 @@ namespace Calculadora // espacio de nombres definido como nuestro proyecto
 
             try
             {
+
+                int edad = 45;
+
                 char opcion = '0'; string valorElegido = "";
                 int n = 1;
 
